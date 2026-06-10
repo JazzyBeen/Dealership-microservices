@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="2" author="student">
+
+        <insert tableName="users">
+            <column name="id" value="466b2db7-8c3a-4dec-8efa-80f75611313b"/>
+            <column name="username" value="user_a"/>
+            <column name="role" value="CLIENT"/>
+            <column name="removed" valueBoolean="false"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="id" value="550e8400-e29b-41d4-a716-446655440000"/>
+            <column name="username" value="user_b"/>
+            <column name="role" value="CLIENT"/>
+            <column name="removed" valueBoolean="false"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="id" value="660e8400-e29b-41d4-a716-446655441111"/>
+            <column name="username" value="admin_manager"/>
+            <column name="role" value="MANAGER"/>
+            <column name="removed" valueBoolean="false"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+
+        <insert tableName="car_parts">
+            <column name="id" value="33333333-3333-3333-3333-333333333333"/>
+            <column name="name" value="18 Aero"/>
+            <column name="price_adjustment" value="0"/>
+            <column name="removed" valueBoolean="false"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+
+        <insert tableName="cars">
+            <column name="id" value="44444444-4444-4444-4444-444444444444"/>
+            <column name="brand" value="Tesla"/>
+            <column name="model" value="Model 3"/>
+            <column name="base_price" value="4000000"/>
+            <column name="wheels_id" value="33333333-3333-3333-3333-333333333333"/>
+            <column name="removed" valueBoolean="false"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

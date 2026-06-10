@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="3" author="student">
+        <createTable tableName="test_drive_requests">
+            <column name="id" type="UUID"><constraints primaryKey="true" nullable="false"/></column>
+            <column name="client_id" type="UUID"><constraints nullable="false"/></column>
+            <column name="car_id" type="UUID"><constraints nullable="false"/></column>
+            <column name="date_time" type="TIMESTAMP"><constraints nullable="false"/></column>
+            <column name="created_at" type="TIMESTAMP"><constraints nullable="false"/></column>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="removed" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"/></column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="test_drive_requests" baseColumnNames="client_id" referencedTableName="users" referencedColumnNames="id" constraintName="fk_test_drive_client"/>
+        <addForeignKeyConstraint baseTableName="test_drive_requests" baseColumnNames="car_id" referencedTableName="cars" referencedColumnNames="id" constraintName="fk_test_drive_car"/>
+    </changeSet>
+
+</databaseChangeLog>

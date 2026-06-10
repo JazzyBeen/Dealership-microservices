@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="1" author="student">
+        <createTable tableName="users">
+            <column name="id" type="UUID"><constraints primaryKey="true" nullable="false"/></column>
+            <column name="username" type="VARCHAR(255)"><constraints nullable="false" unique="true"/></column>
+            <column name="role" type="VARCHAR(50)"><constraints nullable="false"/></column>
+            <column name="created_at" type="TIMESTAMP"><constraints nullable="false"/></column>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="removed" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"/></column>
+        </createTable>
+
+        <createTable tableName="car_parts">
+            <column name="id" type="UUID"><constraints primaryKey="true" nullable="false"/></column>
+            <column name="name" type="VARCHAR(255)"><constraints nullable="false"/></column>
+            <column name="price_adjustment" type="DECIMAL"><constraints nullable="false"/></column>
+            <column name="created_at" type="TIMESTAMP"><constraints nullable="false"/></column>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="removed" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"/></column>
+        </createTable>
+
+        <createTable tableName="car_part_compatible_models">
+            <column name="part_id" type="UUID"><constraints nullable="false"/></column>
+            <column name="model_name" type="VARCHAR(255)"><constraints nullable="false"/></column>
+        </createTable>
+
+        <createTable tableName="cars">
+            <column name="id" type="UUID"><constraints primaryKey="true" nullable="false"/></column>
+            <column name="brand" type="VARCHAR(255)"><constraints nullable="false"/></column>
+            <column name="model" type="VARCHAR(255)"><constraints nullable="false"/></column>
+            <column name="body" type="VARCHAR(255)"/>
+            <column name="engine_power" type="INT"/>
+            <column name="engine_capacity" type="INT"/>
+            <column name="color" type="VARCHAR(255)"/>
+            <column name="base_price" type="DECIMAL"><constraints nullable="false"/></column>
+            <column name="fuel_type" type="VARCHAR(50)"/>
+            <column name="transmission_type" type="VARCHAR(50)"/>
+            <column name="car_drive" type="VARCHAR(50)"/>
+            <column name="wheels_id" type="UUID"/>
+            <column name="transmission_id" type="UUID"/>
+            <column name="steering_wheel_id" type="UUID"/>
+            <column name="interior_id" type="UUID"/>
+            <column name="created_at" type="TIMESTAMP"><constraints nullable="false"/></column>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="removed" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"/></column>
+        </createTable>
+
+        <createTable tableName="orders">
+            <column name="id" type="UUID"><constraints primaryKey="true" nullable="false"/></column>
+            <column name="order_type" type="VARCHAR(31)"><constraints nullable="false"/></column>
+            <column name="car_id" type="UUID"><constraints nullable="false"/></column>
+            <column name="client_id" type="UUID"><constraints nullable="false"/></column>
+            <column name="manager_id" type="UUID"><constraints nullable="false"/></column>
+            <column name="price" type="DECIMAL"><constraints nullable="false"/></column>
+            <column name="status" type="VARCHAR(50)"/>
+            <column name="created_at" type="TIMESTAMP"><constraints nullable="false"/></column>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="removed" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"/></column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

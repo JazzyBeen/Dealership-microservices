@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package org.example.grpc;
+option java_multiple_files = true;
+option java_package = "org.example.grpc.car";
+
+service CarCatalogService {
+  rpc GetAvailableCars (Empty) returns (CarListResponse);
+  rpc GetCarById (CarIdRequest) returns (CarResponse);
+}
+
+message Empty {}
+
+message CarIdRequest {
+  string id = 1;
+}
+
+message CarResponse {
+  string id = 1;
+  string brand = 2;
+  string model = 3;
+  string basePrice = 4;
+  int32 enginePower = 5;
+  string transmissionName = 6;
+}
+
+message CarListResponse {
+  repeated CarResponse cars = 1;
+}
